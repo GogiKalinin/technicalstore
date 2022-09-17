@@ -1,0 +1,45 @@
+.ProductContainer
+  display: grid
+  grid-template-columns: 234px 234px 234px
+  grid-template-rows: 300px
+  min-height: 100vh
+
+  .Product
+    display: grid
+    width: 234px
+    grid-template-columns: 234px
+    grid-template-rows: 150px 30px 65px 72px
+    border: 1px solid black
+    font-weight: 900
+    line-height: 21px
+
+.ProductImageContainer
+  display: flex
+  align-items: center
+  justify-content: center
+
+.ProductDescription
+  display: flex
+  font-weight: 400
+  font-size: 13px
+  line-height: 20px
+  align-items: flex-end
+
+.ProductDescription,
+.ProductPrice
+  display: flex
+  margin-left: 24.5px
+  margin-right: 24.5px
+  width: 184px
+  height: 75px
+  justify-content: center
+  flex-direction: column
+
+.OldPrice
+  text-decoration: line-through
+  font-size: 14px
+  font-weight: 400
+
+.NewPrice
+  font-size: 18px
+  font-weight: 600
