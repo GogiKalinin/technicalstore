@@ -1,41 +1,86 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.sass";
 import { Logo } from "./Logo.jsx";
 import { Basket } from "./Basket.jsx";
 import { Search } from "./Search.jsx";
 import "./Userpic.png";
+
 const Navbar = () => {
+  const [navigationItems, setNavigationItems] = useState([
+    {
+      id: 0,
+      name: "Laptops",
+      active: true,
+    },
+    {
+      id: 1,
+      name: "Desktop PCs",
+      active: false,
+    },
+    {
+      id: 2,
+      name: "Networking Devices",
+      active: false,
+    },
+    {
+      id: 3,
+      name: "Printers & Scanners",
+      active: false,
+    },
+    {
+      id: 4,
+      name: "PC Parts",
+      active: false,
+    },
+    {
+      id: 5,
+      name: "All Other Products",
+      active: false,
+    },
+    {
+      id: 6,
+      name: "Repairs",
+      active: false,
+    },
+  ]);
+
+  const selectNavItem = (name) => {
+    const updatedNavigationItems = [];
+    for (let i = 0; i < navigationItems.length; i++) {
+      const newNavigationItem = navigationItems[i];
+      if (navigationItems[i].name === name) {
+        newNavigationItem.active = true;
+      } else {
+        newNavigationItem.active = false;
+      }
+      updatedNavigationItems.push(newNavigationItem);
+    }
+    setNavigationItems(updatedNavigationItems);
+  };
+
   return (
     <div className="Navbar">
       <ul className="Navbar__menu">
-        <li className="Navbar__item">
-          <a href="google.com">
+        <li className="Navbar__itemLogo">
+          <a className="Navbar__item-MainIcon" href="google.com">
             <div className="Navbar__logo">
               <Logo />
             </div>
           </a>
         </li>
-        <li className="Navbar__item">
-          <a href="google.com">Laptops</a>
-        </li>
-        <li className="Navbar__item">
-          <a href="google.com">Desktop PCs</a>
-        </li>
-        <li className="Navbar__item">
-          <a href="google.com">Networking Devices</a>
-        </li>
-        <li className="Navbar__item">
-          <a href="google.com">Printers & Scanners</a>
-        </li>
-        <li className="Navbar__item">
-          <a href="google.com">PC Parts</a>
-        </li>
-        <li className="Navbar__item">
-          <a href="google.com">All Other Products</a>
-        </li>
-        <li className="Navbar__item">
-          <a href="google.com">Repairs</a>
-        </li>
+        {navigationItems.map((item) => (
+          <li
+            className={
+              item.active ? "Navbar__item Navbar-active__item" : "Navbar__item"
+            }
+            key={item.id}
+            onClick={() => selectNavItem(item.name)}
+            name={item.name}
+          >
+            {item.name}
+          </li>
+        ))}
+
         <a href="google.com">
           <button className="Navbar__button">Our deals</button>
         </a>
