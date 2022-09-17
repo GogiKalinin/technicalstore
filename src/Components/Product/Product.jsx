@@ -6,7 +6,7 @@ import ProcImage1 from "../../Images/ProductImages/Proc1.png";
 // import image1 from "../../Images/ProductImages/Proc.png";
 // import "../../Images/ProductImages/Proc1.png";
 // import "../../Images/ProductImages/Planshet.png";
-import Stars from "./Stars/Stars";
+// import Stars from "./Stars/Stars";
 
 const Prod = [
   {
