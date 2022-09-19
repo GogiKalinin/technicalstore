@@ -5,12 +5,15 @@ import { Basket } from "./Basket.jsx";
 import { Search } from "./Search.jsx";
 import "./Userpic.png";
 
-const Navbar = () => {
+const Navbar = ({ showBasketModal, setShowBasketModal }) => {
+  const toggleBasketModalView = () => {
+    setShowBasketModal(!showBasketModal);
+  };
   const [navigationItems, setNavigationItems] = useState([
     {
       id: 0,
       name: "Laptops",
-      active: true,
+      active: false,
     },
     {
       id: 1,
@@ -95,11 +98,9 @@ const Navbar = () => {
           </a>
         </li>
         <li className="MenuListItem">
-          <a href="google.com">
-            <div className="UserMenuSearch">
-              <Basket />
-            </div>
-          </a>
+          <div className="UserMenuSearch" onClick={toggleBasketModalView}>
+            <Basket />
+          </div>
         </li>
         <li className="MenuListItem">
           <a href="google.com">
