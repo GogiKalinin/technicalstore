@@ -10,8 +10,7 @@ import StarsNew from "../StarsNew/StarsNew";
 // import "../../Images/ProductImages/Planshet.png";
 // import Stars from "./Stars/Stars";
 
-const Product = () => {
-  // const [selectedProductItem, setSelectedProductItem] = useState({});
+const Product = (props) => {
   const productArray = [
     {
       id: 0,
@@ -35,10 +34,14 @@ const Product = () => {
       newPrice: "$999.00",
     },
   ];
+  // console.log("basketData", props.basketData);
 
-  const selectProduct = (prod) => {
-    // setSelectedProductItem(prod);
-  };
+  // const setClickedProduct = (prod) => {
+  //   const clickedProduct = [];
+  //   clickedProduct.push(prod);
+  //   console.log("clickedProduct", clickedProduct);
+  // };
+
   return (
     <div className="ProductContainer">
       {/* <div className="ProductTitle">
@@ -52,7 +55,9 @@ const Product = () => {
           <div
             className={prod.active ? "Product Product-active" : "Product"}
             key={prod.id}
-            onClick={() => selectProduct(prod)}
+            // onClick={props.basketData.push(prod)}
+            // onClick={() => setClickedProduct(prod)}
+            onClick={() => props.setBasketData(prod)}
           >
             <div className="ProductImageContainer">
               <img className="ProductImage" src={prod.image} alt="img"></img>

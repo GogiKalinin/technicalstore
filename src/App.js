@@ -5,11 +5,12 @@ import Product from "./Components/Product/Product";
 import PreFooter from "./Components/PreFooter/PreFooter";
 import Footer from "./Components/Footer/Footer";
 import BannerSlider from "./Components/BannerSlider/BannerSlider";
-import BacketModal from "./Components/BacketModal/BacketModal";
+import BasketModal from "./Components/BasketModal/BasketModal";
 
 const App = () => {
-  const [showBasketModal, setShowBasketModal] = useState(true);
-  const [basketData, setBasketData] = useState(true);
+  const [showBasketModal, setShowBasketModal] = useState(false);
+  const [basketData, setBasketData] = useState([]);
+  console.log("basketData", basketData);
   return (
     <div className="App">
       <Header
@@ -18,11 +19,13 @@ const App = () => {
       />
       <div className="Main">
         <BannerSlider />
-        <Product />
+        <Product basketData={basketData} setBasketData={setBasketData} />
         <PreFooter />
       </div>
       <Footer />
-      {showBasketModal ? <BacketModal /> : null}
+      {showBasketModal ? (
+        <BasketModal basketData={basketData} setBasketData={setBasketData} />
+      ) : null}
     </div>
   );
 };
